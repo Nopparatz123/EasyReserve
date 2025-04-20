@@ -7,6 +7,8 @@ import Login from '../pages/Login.vue';
 // admin
 import Dashboard from "../pages/Dashboard.vue";
 import Manage_User from "../pages/system/Manage_User.vue";
+import Manage_Accommodation from "../pages/system/Manage_Accommodation.vue";
+import Manage_Hotel from "../pages/system/Manage_Hotel.vue";
 
 const routes = [
    // users
@@ -27,10 +29,20 @@ const routes = [
     component: Dashboard,
     children: [
       {
-        path: "/manageusers",
+        path: "/admin/users",
         name: "manageusers",
         component: Manage_User,
-      }
+      },
+      {
+        path: "/admin/accommodation",
+        name: "manageaccommodation,",
+        component: Manage_Accommodation,
+      },
+      {
+        path: "/admin/hotel",
+        name: "managehotel",
+        component: Manage_Hotel,
+      },
     ]
   },
 ];
