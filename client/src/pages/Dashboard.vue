@@ -1,25 +1,31 @@
 <template>
-    <div class="mt-10 mx-25">
-        <div class="grid grid-cols-12">
-            <div class="col-span-2">
-                <Sidebar />
-            </div>
-            <div class="col-span-10 bg-neutral-100 p-5 rounded md:ms-9">      
-                <div class=" bg-white shadow-sm w-full rounded">
-                    <router-view />
-                </div>
-            </div>
+    <div class="flex h-screen">
+        <Sidebar />
+      <div class="md:ml-[250px] md:w-full flex-1 overflow-hidden">
+        <Navbar />
+        <div class="bg-gray-200 p-7 min-h-screen">
+          <div class="shadow-sm w-full bg-white rounded-2xl mt-15 p-3">
+            <router-view />
+          </div>
         </div>
+      </div>
     </div>
-</template>
+  </template>
+  
 
 <script>
-import Sidebar from '../components/UI/sidebar.vue';
+import Sidebar from '../components/UI/Sidebar.vue';
+import Navbar from '../components/UI/Navbar.vue';
 export default {
     components: {
-        Sidebar
+        Sidebar,
+        Navbar
     }
 }
 </script>
 
-<style></style>
+<style>
+/* .content{
+        background-color: var(--color-gray-200);
+    } */
+</style>
