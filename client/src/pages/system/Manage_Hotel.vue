@@ -2,10 +2,10 @@
     <form @submit.prevent="sendInsertHotel">
         <input type="text" v-model="hotel.name" placeholder="ชื่อโรงแรม">
         <input type="text" v-model="hotel.description" placeholder="คำอธิบาย">
-        <input type="text" v-model="hotel.location" placeholder="ที่อยู่">
+        <input type="text" v-model="hotel.address" placeholder="ที่อยู่">
+        <input type="text" v-model="hotel.province" placeholder="จังหวัด">
         <input type="text" v-model="hotel.phone" placeholder="เบอร์">
         <button type="submit">letgo</button>
-        <!-- <input type="file" v-model="hotel.image" placeholder="รูปภาพ"> -->
     </form>
 
     <div v-for="hotel in datahotel" :key="hotel.id">
@@ -22,7 +22,8 @@ export default {
             hotel: {
                 name: '',
                 description: '',
-                location: '',
+                address: '',
+                province: '',
                 phone: '',
             },
             datahotel: []
@@ -54,7 +55,8 @@ export default {
                     table: 'hotels',
                     name: this.hotel.name,
                     description: this.hotel.description,
-                    location: this.hotel.location,
+                    address: this.hotel.address,
+                    province: this.hotel.province,
                     phone: this.hotel.phone,
                 });
                 console.log(res.data)
@@ -63,8 +65,9 @@ export default {
                 this.hotel = {
                     name: '',
                     description: '',
-                    location: '',
-                    phone: ''
+                    address: '',
+                    province: '',
+                    phone: '',
                 };
             } catch (err) {
                 console.error("die", err)

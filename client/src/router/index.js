@@ -9,6 +9,7 @@ import Dashboard from "../pages/Dashboard.vue";
 import Manage_User from "../pages/system/Manage_User.vue";
 import Manage_Accommodation from "../pages/system/Manage_Accommodation.vue";
 import Manage_Hotel from "../pages/system/Manage_Hotel.vue";
+import Manage_Dashboard from "../pages/system/Manage_Dashboard.vue";
 
 const routes = [
    // users
@@ -28,6 +29,11 @@ const routes = [
     name: "dashboard",
     component: Dashboard,
     children: [
+      {
+        path: "/admin/dashboard",
+        name: "managedashboard",
+        component: Manage_Dashboard,
+      },
       {
         path: "/admin/users",
         name: "manageusers",

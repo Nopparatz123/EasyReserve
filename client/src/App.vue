@@ -14,7 +14,7 @@ export default {
         disbleHeader() {
             const hiddenPaths = [
                 '/login', '/register',  //user
-                '/admin', '/admin/users', '/admin/hotel', '/admin/accommodation',     //admim
+                '/admin', '/admin/users', '/admin/hotel', '/admin/accommodation', '/admin/dashboard'     //admim
             ];
             return !hiddenPaths.includes(this.$route.path);
         }

@@ -53,6 +53,9 @@
                             <i class="fa-solid fa-envelope"></i> Email
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            <i class="fa-solid fa-envelope"></i> Create_at
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             <i class="fa-solid fa-user-tie"></i> Role
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -71,6 +74,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ user.email }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ user.created_at }}
                         </td>
                         <td class="px-6 py-4">
                             {{ user.role }}

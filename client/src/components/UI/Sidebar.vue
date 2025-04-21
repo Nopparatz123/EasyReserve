@@ -10,18 +10,21 @@
           </div>
 
           <li>
-            <a href="#" class="flex items-center p-2 text-black group transition hover:bg-gray-200">
+            <router-link to="/admin/dashboard"
+              class="flex items-center p-2 group transition hover:bg-gray-200"
+              exact-active-class="bg-gray-200 border-l-4 border-l-blue-700 text-blue-500">
               <i class="fa-solid fa-table-columns  ms-5"></i>
               <span class="ms-3">Dashboard</span>
-            </a>
+            </router-link>
           </li>
+          
   
           <li>
             <router-link to="/admin/accommodation"
               class="flex items-center p-2 group transition hover:bg-gray-200"
               exact-active-class="bg-gray-200 border-l-4 border-l-blue-700 text-blue-500">
               <i class="fa-solid fa-bed ms-5"></i>
-              <span class="ms-3">จัดการที่พัก</span>
+              <span class="ms-3">จัดการห้องพัก</span>
             </router-link>
           </li>
   
