@@ -18,7 +18,7 @@
                 <div class="mb-4 text-center">
                     <button class="bg-blue-500 text-white w-full btn-rounded p-1 mb-2">เข้าสู่ระบบ</button>
                     <p class="inline text-sm">คุณยังไม่มีบัญชีใช่ไหม </p>
-                    <a href="" class="inline text-blue-600 underline font-bold text-sm">สมัครสมาชิก</a>
+                    <router-link to="/register" class="inline text-blue-600 underline font-bold text-sm">สมัครสมาชิก</router-link>
                 </div>
 
                 <div class="flex gap-4 justify-center">
