@@ -6,18 +6,23 @@
     class Auth{
         private $conn;
 
+        public function __construct($conn){
+            $this->conn = $conn;
+        }
+
         public function Login($email, $password){
             try{   
-                $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ?, email = ?");
-                $stmt->execute([$email, $password]);
+                $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
+                $stmt->execute([$email]);
                 $user = $stmt->fetch();
 
                 if($user && password_verify($password, $user['password'])){
-                    $_SESSION['user_login'] = $data['id'];
-                    $_SESSION['username'] = $data['username'];
-                    $_SESSION['role'] =  $data['role'];
+                    $_SESSION['user_login'] = $user['id'];
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['role'] =  $user['role'];
+                    return ['message' => 'login success'];
                 }else{
-                    echo "die";
+                    return ['message' => 'invalid credential'];
                 }
             }catch(PDOException $e){
                 echo "เกิดข้อผิดพลาด" . $e->getMessage();
@@ -35,25 +40,25 @@
                 return ['message' => 'error'];
             }
         }
+        
 
     }
 
-    $Auth = new Auth();
+    $Auth = new Auth($conn);
     if($_SERVER['REQUEST_METHOD'] == 'POST' && $data['action'] == 'sendRegister'){
         try{
             $table = $data['table'] ?? 'users';
             $password = $data['password'] ?? '';
             $passwordhash = password_hash($password, PASSWORD_DEFAULT);
             $dataUser = [
+                'email' => $data['email'] ?? '',
                 'username' => $data['username'] ?? '',
-                'email' => $passwordhash,
-                'password' => $data['password'] ?? '',
-                'role' => $data['role'] ?? '',
+                'password' => $passwordhash,
             ];
             $result = $Auth->Register($dataUser, $table);
             echo json_encode($result);
         }catch(PDOException $e){
-            json_encode(["Message" => $e->getMessage()]);
+            echo json_encode(["Message" => $e->getMessage()]);
         }
     }
 
@@ -62,9 +67,13 @@
             $email = $data['email'] ?? '';
             $password = $data['password'] ?? '';
             $result = $Auth->Login($email, $password);
-            echo json_encode($result);
+            // $username = $_SESSION['username'];
+            echo json_encode([
+                "message" => $result['message'],
+                "username" => $_SESSION['username'],
+            ]);
         }catch(PDOException $e){
-            json_encode(["Message" => $e->getMessage()]);
+            echo json_encode(["Message" => $e->getMessage()]);
         }
     }
 ?>

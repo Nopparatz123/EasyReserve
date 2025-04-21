@@ -32,4 +32,21 @@
         }
     }
 
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && $action == 'insertUser'){
+        try{
+            $table = $data['table'] ?? 'users';
+            $password = $data['password'] ?? '';
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $dataUser = [
+                'email' => $data['email'] ?? '',
+                'password' => $passwordHash,
+                'username' => $data['username'] ?? ''
+            ];
+            $result = $admin->Insert($dataUser, $table);
+            echo json_encode($result);
+        }catch(Exception $e){
+            echo json_encode(["message" => $e->getMessage()]);
+        }
+    }
+
 ?>

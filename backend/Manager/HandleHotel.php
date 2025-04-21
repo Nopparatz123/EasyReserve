@@ -12,7 +12,8 @@
             $dataHotel = [
                 'name' => $data['name'] ?? '',
                 'description' => $data['description'] ?? '',
-                'location' => $data['location'] ?? '',
+                'address' => $data['address'] ?? '',
+                'province' => $data['province'] ?? '',
                 'phone' => $data['phone'] ?? ''
             ];
             $result = $admin->Insert($dataHotel, $table);
