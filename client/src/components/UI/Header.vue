@@ -15,15 +15,45 @@
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <router-link to="/login" class="text-xs transition bg-blue-500 hover:bg-blue-600 text-white px-3 p-2 rounded">เข้าสู่ระบบ</router-link>
-                <router-link to="/login" class="text-xs transition bg-gray-500 hover:bg-gray-600 text-white px-3 p-2 rounded ms-2">สมัครสมาชิก</router-link>
+                <div v-if="!isLoggenIn">
+                    <router-link to="/login" class="text-xs transition bg-blue-500 hover:bg-blue-600 text-white px-3 p-2 rounded">เข้าสู่ระบบ</router-link>
+                    <router-link to="/register" class="text-xs transition bg-gray-500 hover:bg-gray-600 text-white px-3 p-2 rounded ms-2">สมัครสมาชิก</router-link>
+                </div>
+                <div v-else>
+                    <h1 class="text-black">{{ username }}</h1>
+                    <button class="text-red-500 underline" @click="sendLogout" type="submit">ออกจากระบบ</button>
+                </div>
             </div>
         </div>
     </nav>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: 'Header'
+    name: 'Header',
+    data() {
+        return {
+            isLoggenIn: false,
+            username : '',
+        }
+    },  
+    methods: {
+        sendLogout(){
+           if(confirm("คุณต้องการออกจากระบบ ใช่ไหม?")){
+            localStorage.removeItem('user_login'); //ลบประวัติการเข้าสู่ระบบ
+            this.isLoggenIn = false;
+            this.$router.push('/login')
+           }
+        }
+    },
+    created() {
+        const loginUser = localStorage.getItem('user_login');
+        if(loginUser){
+            this.isLoggenIn = true
+            this.username = localStorage.getItem('username')
+        }
+    } 
 }
 </script>

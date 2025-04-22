@@ -54,7 +54,7 @@ export default {
     methods: {
         async sendRegister() {
             try {
-                const res = await axios.post('http://localhost/backend/Auth/auth.php', {
+                const res = await axios.post('http://localhost/backend/Auth/auth.php', { //ur api sendRegister User
                     action: 'sendRegister',
                     email: this.register.email,
                     password: this.register.password,
@@ -66,6 +66,7 @@ export default {
                     password: '',
                     username: ''
                 }
+                this.$router.push('/login');
             } catch (err) {
                 console.log("เกิดข้อผิดพลาด", err)
             }

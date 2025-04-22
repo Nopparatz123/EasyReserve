@@ -22,8 +22,9 @@
 
                     <div class="mb-4 text-center">
                         <button class="bg-blue-500 text-white w-full btn-rounded p-1 mb-2" type="submit">เข้าสู่ระบบ</button>
+                        <p v-if="errorMessage" class="text-red-500">{{ errorMessage }} !!</p>
                         <p class="inline text-sm">คุณยังไม่มีบัญชีใช่ไหม </p>
-                        <router-link to="/Login"
+                        <router-link to="/register"
                             class="inline text-blue-600 underline font-bold text-sm">สมัครสมาชิก</router-link>
                     </div>
                 </form>
@@ -47,17 +48,26 @@ export default {
             dataLogin: {
                 email: '',
                 password: '',
-            }
+            },
+            errorMessage: '',
         }
     },
     methods: {
         async sendLogin(){
             try{
-                const res = await axios.post('http://localhost/backend/Auth/auth.php',{
+                const res = await axios.post('http://localhost/backend/Auth/auth.php',{ //url api sendLogin User
                     action: 'sendLogin',
                     email: this.dataLogin.email,
                     password: this.dataLogin.password,
                 });
+                if(res.data.message === 'success'){
+                    localStorage.setItem('user_login', JSON.stringify(res.data.user_login))
+                    localStorage.setItem('username', res.data.username)
+                    localStorage.setItem('role', res.data.role)
+                    this.$router.push('/');
+                }else{
+                    this.errorMessage = res.data.message;
+                }
                 console.log(res.data);
             }catch(err){
                 console.error("เข้าสู่ระบบ เกิดข้อผิดพลาด", err)
