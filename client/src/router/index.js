@@ -4,21 +4,29 @@ import App from "../App.vue";
 // import page users
 import Login from '../pages/Login.vue';
 import Register from '../pages/Register.vue';
+import Home from "../pages/Home.vue";
+import Booking from "../pages/UserControl/Booking.vue";
 
 // import page admin
 import Dashboard from "../pages/Dashboard.vue";
-import Manage_User from "../pages/system/Manage_User.vue";
-import Manage_Accommodation from "../pages/system/Manage_Accommodation.vue";
-import Manage_Hotel from "../pages/system/Manage_Hotel.vue";
-import Manage_Dashboard from "../pages/system/Manage_Dashboard.vue";
+import Manage_User from "../pages/AdminControl/Manage_User.vue";
+import Manage_Accommodation from "../pages/AdminControl/Manage_Accommodation.vue";
+import Manage_Hotel from "../pages/AdminControl/Manage_Hotel.vue";
+import Manage_Dashboard from "../pages/AdminControl/Manage_Dashboard.vue";
 
 const routes = [
    // routes users
    {
     path: "/",
-    name: "app",
-    component: App,
-    meta: { requiresAuth: true } //กันยังไม่เข้าสู่ระบบ แล้วเข้าผ่านpath
+    name: "home",
+    component: Home,
+    meta: { requiresAuth: true },
+   },
+   {
+    path: "/booking",
+    name: "booking",
+    component: Booking,
+    meta: { requiresAuth: true },
    },
    {
     path: "/login",

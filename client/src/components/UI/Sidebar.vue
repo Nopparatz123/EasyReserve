@@ -1,10 +1,10 @@
 <template>
-    <div class="fixed hidden md:block z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0 shadow-lg rounded-r-2xl bg-white">
+    <div class="fixed top-0 hidden md:block z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0 shadow-lg rounded-r-2xl bg-white">
       <div class="h-full py-7 shadow-md">
         <ul class="space-y-3 font-medium">
           <div class="flex ms-2 items-center mb-9">
             <img src="../../assets/image/Copilot-Logo-2023.png" class="w-15 ms-1" alt="">
-            <h1 class="font-semibold text-2xl bg-gradient-to-r from-blue-400 via-blue-550 to-blue-400 text-transparent bg-clip-text">
+            <h1 class="font-semibold text-2xl bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 text-transparent bg-clip-text">
                 VUECOXY
             </h1>
           </div>
@@ -63,6 +63,7 @@
               <span class="ms-3">ตั้งค่าระบบ</span>
             </router-link>
           </li>
+          
         </ul>
       </div>
     </div>
@@ -70,7 +71,23 @@
   
   <script>
   export default {
-    name: 'Sidebar'
+    name: 'Sidebar',
+    data() {
+      return {
+        profile: {
+          username: '',
+          role: '',
+        }
+      }
+    },
+    created() {
+      const userRole = localStorage.getItem('role');
+      if(userRole == 'admin'){
+          // console.log(userRole)
+          this.profile.username = localStorage.getItem('username');
+          this.profile.role = localStorage.getItem('role'); 
+      }
+    },
   }
   </script>
   

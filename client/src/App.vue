@@ -1,14 +1,18 @@
 <template>
     <Header v-if="disbleHeader" />
-    <router-view />
+    <router-view class="pt-10" />
+    <Footer v-if="disbleFooter" />
 </template>
 
 
 <script>
+import Footer from './components/UI/Footer.vue';
 import Header from './components/UI/Header.vue';
+
 export default {
     components: {
-        Header
+        Header,
+        Footer
     },
     computed: {
         disbleHeader() {
@@ -17,6 +21,12 @@ export default {
                 '/admin', '/admin/users', '/admin/hotel', '/admin/accommodation', '/admin/dashboard'     //admim
             ];
             return !hiddenPaths.includes(this.$route.path);
+        },
+        disbleFooter(){
+            const footerHiddenPaths = [
+                '/admin', '/booking'
+            ];
+            return !footerHiddenPaths.includes(this.$route.path);
         }
     }
 }

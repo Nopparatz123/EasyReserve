@@ -1,5 +1,5 @@
 <template>
-    <nav class="shadow-lg bg-white fixed w-full z-0 p-1">
+    <nav class="shadow-lg bg-white fixed top-0 w-full z-30 p-1">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3 pt-3 ms-6">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-bold
