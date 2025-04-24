@@ -18,16 +18,6 @@
             </router-link>
           </li>
           
-  
-          <li>
-            <router-link to="/admin/accommodation"
-              class="flex items-center p-2 group transition hover:bg-gray-200"
-              exact-active-class="bg-gray-200 border-l-4 border-l-blue-700 text-blue-500">
-              <i class="fa-solid fa-bed ms-5"></i>
-              <span class="ms-3">จัดการห้องพัก</span>
-            </router-link>
-          </li>
-  
           <li>
             <router-link to="/admin/hotel"
               class="flex items-center p-2 group transition hover:bg-gray-200"
@@ -36,13 +26,31 @@
               <span class="ms-3">จัดการโรงแรม</span>
             </router-link>
           </li>
+
+          <li>
+            <router-link to="/admin/room"
+              class="flex items-center p-2 group transition hover:bg-gray-200"
+              exact-active-class="bg-gray-200 border-l-4 border-l-blue-700 text-blue-500">
+              <i class="fa-solid fa-hotel ms-5"></i>
+              <span class="ms-3">จัดการห้องพัก</span>
+            </router-link>
+          </li>
+
+          <li>
+            <router-link to="/admin/rooms"
+              class="flex items-center p-2 group transition hover:bg-gray-200"
+              exact-active-class="bg-gray-200 border-l-4 border-l-blue-700 text-blue-500">
+              <i class="fa-solid fa-user ms-5"></i>
+              <span class="ms-3">ตารางห้อง</span>
+            </router-link>
+          </li>
   
           <li>
             <router-link to="/admin/users"
               class="flex items-center p-2 group transition hover:bg-gray-200"
               exact-active-class="bg-gray-200 border-l-4 border-l-blue-700 text-blue-500">
               <i class="fa-solid fa-user ms-5"></i>
-              <span class="ms-3">จัดการผู้ใช้งาน</span>
+              <span class="ms-3">ตารางผู้ใช้งาน</span>
             </router-link>
           </li>
   

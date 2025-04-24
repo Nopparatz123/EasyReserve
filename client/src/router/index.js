@@ -10,9 +10,10 @@ import Booking from "../pages/UserControl/Booking.vue";
 // import page admin
 import Dashboard from "../pages/Dashboard.vue";
 import Manage_User from "../pages/AdminControl/Manage_User.vue";
-import Manage_Accommodation from "../pages/AdminControl/Manage_Accommodation.vue";
 import Manage_Hotel from "../pages/AdminControl/Manage_Hotel.vue";
 import Manage_Dashboard from "../pages/AdminControl/Manage_Dashboard.vue";
+import Table_Rooms from "../pages/AdminControl/Table_Rooms.vue";
+import Manage_Rooms from "../pages/AdminControl/Manage_Rooms.vue";
 
 const routes = [
    // routes users
@@ -58,9 +59,14 @@ const routes = [
         component: Manage_User,
       },
       {
-        path: "/admin/accommodation",
-        name: "manageaccommodation,",
-        component: Manage_Accommodation,
+        path: "/admin/room",
+        name: "manageroom",
+        component: Manage_Rooms,
+      },
+      {
+        path: "/admin/rooms",
+        name: "managerooms",
+        component: Table_Rooms,
       },
       {
         path: "/admin/hotel",
@@ -70,7 +76,6 @@ const routes = [
     ]
   },
 ];
-
 const router = createRouter({
   history: createWebHistory(),
   routes,

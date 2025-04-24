@@ -18,13 +18,13 @@ export default {
         disbleHeader() {
             const hiddenPaths = [
                 '/login', '/register',  //user
-                '/admin', '/admin/users', '/admin/hotel', '/admin/accommodation', '/admin/dashboard'     //admim
+                '/admin', '/admin/users', '/admin/hotel', '/admin/room', '/admin/dashboard', '/admin/rooms'     //admim
             ];
             return !hiddenPaths.includes(this.$route.path);
         },
         disbleFooter(){
             const footerHiddenPaths = [
-                '/admin', '/booking'
+                '/admin', '/booking', '/admin/room'
             ];
             return !footerHiddenPaths.includes(this.$route.path);
         }

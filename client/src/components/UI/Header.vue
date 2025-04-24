@@ -50,10 +50,10 @@
                         class="text-xs transition bg-gray-500 hover:bg-gray-600 text-white px-3 p-2 rounded ms-2">สมัครสมาชิก</router-link>
                 </div>
                 <div v-else class="flex gap-2 items-center">
-                    <h1 class="text-blue-500 font-bold">{{ username }}</h1> |
+                    <h1 class="text-blue-500 font-bold text-sm">{{ username }}</h1> |
                     <div class="dropdown">
                         <div tabindex="0" role="button" class="text-blue-500">
-                            <i class="fa-solid fa-circle-user text-3xl"></i>
+                            <i class="fa-solid fa-circle-user text-2xl"></i>
                         </div>
                         <ul tabindex="0" class="dropdown-content menu rounded-xl z-1 w-40 p-2 py-5 gap-4 shadow-sm bg-white left-0 -translate-x-20 translate-y-2 text-center">
                             <h1 class="text-black">Profile : {{ username }}</h1>
